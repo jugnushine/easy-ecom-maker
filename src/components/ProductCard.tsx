@@ -117,11 +117,11 @@ const ProductCard = ({
           {/* Price */}
           <div className="flex items-center space-x-2">
             <span className="font-bold text-lg">
-              ${product.price}
+              ₹{product.price.toLocaleString('en-IN')}
             </span>
             {product.originalPrice && (
               <span className="text-sm text-muted-foreground line-through">
-                ${product.originalPrice}
+                ₹{product.originalPrice.toLocaleString('en-IN')}
               </span>
             )}
           </div>

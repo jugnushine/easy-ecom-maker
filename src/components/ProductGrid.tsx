@@ -14,8 +14,8 @@ const sampleProducts: Product[] = [
   {
     id: "1",
     name: "Premium Wireless Headphones",
-    price: 199,
-    originalPrice: 249,
+    price: 16500,
+    originalPrice: 20700,
     image: productHeadphones,
     rating: 4.8,
     reviews: 326,
@@ -26,7 +26,7 @@ const sampleProducts: Product[] = [
   {
     id: "2",
     name: "Smart Fitness Watch",
-    price: 299,
+    price: 24800,
     image: productWatch,
     rating: 4.6,
     reviews: 189,
@@ -36,8 +36,8 @@ const sampleProducts: Product[] = [
   {
     id: "3",
     name: "MacBook Pro 14-inch",
-    price: 1599,
-    originalPrice: 1799,
+    price: 132700,
+    originalPrice: 149300,
     image: productLaptop,
     rating: 4.9,
     reviews: 542,
@@ -47,7 +47,7 @@ const sampleProducts: Product[] = [
   {
     id: "4",
     name: "iPhone 15 Pro",
-    price: 999,
+    price: 82900,
     image: productPhone,
     rating: 4.7,
     reviews: 892,
@@ -56,8 +56,8 @@ const sampleProducts: Product[] = [
   {
     id: "5",
     name: "Premium Wireless Headphones",
-    price: 199,
-    originalPrice: 249,
+    price: 16500,
+    originalPrice: 20700,
     image: productHeadphones,
     rating: 4.8,
     reviews: 326,
@@ -67,7 +67,7 @@ const sampleProducts: Product[] = [
   {
     id: "6",
     name: "Smart Fitness Watch",
-    price: 299,
+    price: 24800,
     image: productWatch,
     rating: 4.6,
     reviews: 189,
@@ -76,7 +76,7 @@ const sampleProducts: Product[] = [
   {
     id: "7",
     name: "MacBook Pro 14-inch",
-    price: 1599,
+    price: 132700,
     image: productLaptop,
     rating: 4.9,
     reviews: 542,
@@ -85,7 +85,7 @@ const sampleProducts: Product[] = [
   {
     id: "8",
     name: "iPhone 15 Pro",
-    price: 999,
+    price: 82900,
     image: productPhone,
     rating: 4.7,
     reviews: 892,

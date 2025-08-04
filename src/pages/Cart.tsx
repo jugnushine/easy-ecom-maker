@@ -22,7 +22,7 @@ const Cart = () => {
     {
       id: "1",
       name: "Premium Wireless Headphones",
-      price: 199,
+      price: 16500,
       image: "/placeholder.svg",
       quantity: 1,
       category: "Audio"
@@ -30,7 +30,7 @@ const Cart = () => {
     {
       id: "2",
       name: "Smart Fitness Watch",
-      price: 299,
+      price: 24800,
       image: "/placeholder.svg",
       quantity: 2,
       category: "Wearables"
@@ -52,8 +52,8 @@ const Cart = () => {
   };
 
   const subtotal = cartItems.reduce((sum, item) => sum + (item.price * item.quantity), 0);
-  const shipping = 15;
-  const tax = subtotal * 0.08;
+  const shipping = 1200; // ₹1,200 shipping
+  const tax = subtotal * 0.18; // 18% GST in India
   const total = subtotal + shipping + tax;
 
   if (cartItems.length === 0) {
@@ -112,7 +112,7 @@ const Cart = () => {
                     <div className="flex-1 space-y-2">
                       <h3 className="font-semibold">{item.name}</h3>
                       <p className="text-sm text-muted-foreground">{item.category}</p>
-                      <p className="font-bold">${item.price}</p>
+                      <p className="font-bold">₹{item.price.toLocaleString('en-IN')}</p>
                     </div>
                     
                     <div className="flex items-center space-x-2">
@@ -175,20 +175,20 @@ const Cart = () => {
                 <div className="space-y-2">
                   <div className="flex justify-between">
                     <span>Subtotal</span>
-                    <span>${subtotal.toFixed(2)}</span>
+                    <span>₹{subtotal.toLocaleString('en-IN')}</span>
                   </div>
                   <div className="flex justify-between">
                     <span>Shipping</span>
-                    <span>${shipping.toFixed(2)}</span>
+                    <span>₹{shipping.toLocaleString('en-IN')}</span>
                   </div>
                   <div className="flex justify-between">
-                    <span>Tax</span>
-                    <span>${tax.toFixed(2)}</span>
+                    <span>GST (18%)</span>
+                    <span>₹{Math.round(tax).toLocaleString('en-IN')}</span>
                   </div>
                   <Separator />
                   <div className="flex justify-between font-bold text-lg">
                     <span>Total</span>
-                    <span>${total.toFixed(2)}</span>
+                    <span>₹{Math.round(total).toLocaleString('en-IN')}</span>
                   </div>
                 </div>
                 

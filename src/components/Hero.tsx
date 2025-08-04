@@ -53,7 +53,7 @@ const Hero = () => {
                 </div>
                 <div>
                   <p className="font-semibold text-sm">Free Shipping</p>
-                  <p className="text-xs text-muted-foreground">On orders $50+</p>
+                  <p className="text-xs text-muted-foreground">On orders ₹4,000+</p>
                 </div>
               </div>
               

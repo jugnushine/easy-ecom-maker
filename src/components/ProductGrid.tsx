@@ -9,6 +9,12 @@ import productHeadphones from "@/assets/product-headphones.jpg";
 import productWatch from "@/assets/product-watch.jpg";
 import productLaptop from "@/assets/product-laptop.jpg";
 import productPhone from "@/assets/product-phone.jpg";
+import productShoesRunning from "@/assets/product-shoes-running.jpg";
+import productShoesFormal from "@/assets/product-shoes-formal.jpg";
+import productShoesCasual from "@/assets/product-shoes-casual.jpg";
+import productClothingJeans from "@/assets/product-clothing-jeans.jpg";
+import productClothingTshirt from "@/assets/product-clothing-tshirt.jpg";
+import productClothingJacket from "@/assets/product-clothing-jacket.jpg";
 
 const sampleProducts: Product[] = [
   {
@@ -55,6 +61,69 @@ const sampleProducts: Product[] = [
   },
   {
     id: "5",
+    name: "Nike Air Max Running Shoes",
+    price: 8999,
+    originalPrice: 12499,
+    image: productShoesRunning,
+    rating: 4.7,
+    reviews: 445,
+    category: "Shoes",
+    isNew: true,
+    isSale: true,
+  },
+  {
+    id: "6",
+    name: "Oxford Leather Dress Shoes",
+    price: 15999,
+    image: productShoesFormal,
+    rating: 4.8,
+    reviews: 234,
+    category: "Shoes",
+  },
+  {
+    id: "7",
+    name: "Classic White Sneakers",
+    price: 6999,
+    originalPrice: 8999,
+    image: productShoesCasual,
+    rating: 4.6,
+    reviews: 678,
+    category: "Shoes",
+    isSale: true,
+  },
+  {
+    id: "8",
+    name: "Premium Denim Jeans",
+    price: 4999,
+    image: productClothingJeans,
+    rating: 4.5,
+    reviews: 523,
+    category: "Clothing",
+    isNew: true,
+  },
+  {
+    id: "9",
+    name: "Cotton Basic T-Shirt",
+    price: 1999,
+    originalPrice: 2999,
+    image: productClothingTshirt,
+    rating: 4.4,
+    reviews: 892,
+    category: "Clothing",
+    isSale: true,
+  },
+  {
+    id: "10",
+    name: "Leather Biker Jacket",
+    price: 24999,
+    image: productClothingJacket,
+    rating: 4.9,
+    reviews: 156,
+    category: "Clothing",
+    isNew: true,
+  },
+  {
+    id: "11",
     name: "Premium Wireless Headphones",
     price: 16500,
     originalPrice: 20700,
@@ -65,32 +134,13 @@ const sampleProducts: Product[] = [
     isSale: true,
   },
   {
-    id: "6",
+    id: "12",
     name: "Smart Fitness Watch",
     price: 24800,
     image: productWatch,
     rating: 4.6,
     reviews: 189,
     category: "Wearables",
-  },
-  {
-    id: "7",
-    name: "MacBook Pro 14-inch",
-    price: 132700,
-    image: productLaptop,
-    rating: 4.9,
-    reviews: 542,
-    category: "Computers",
-  },
-  {
-    id: "8",
-    name: "iPhone 15 Pro",
-    price: 82900,
-    image: productPhone,
-    rating: 4.7,
-    reviews: 892,
-    category: "Phones",
-    isNew: true,
   },
 ];
 
@@ -149,7 +199,7 @@ const ProductGrid = ({ title = "Featured Products", showTabs = true, limit }: Pr
 
         {showTabs ? (
           <Tabs defaultValue="All" className="space-y-8">
-            <TabsList className="grid w-full grid-cols-5">
+            <TabsList className="grid w-full grid-cols-7 animate-scale-in">
               {categories.map(category => (
                 <TabsTrigger key={category} value={category}>
                   {category}
@@ -160,14 +210,22 @@ const ProductGrid = ({ title = "Featured Products", showTabs = true, limit }: Pr
             {categories.map(category => (
               <TabsContent key={category} value={category}>
                 <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
-                  {getFilteredProducts(category).map(product => (
-                    <ProductCard
+                  {getFilteredProducts(category).map((product, index) => (
+                    <div
                       key={product.id}
-                      product={product}
-                      onAddToCart={handleAddToCart}
-                      onToggleWishlist={handleToggleWishlist}
-                      isInWishlist={wishlist.includes(product.id)}
-                    />
+                      className="animate-fade-in hover-scale"
+                      style={{
+                        animationDelay: `${index * 0.1}s`,
+                        animationFillMode: 'both'
+                      }}
+                    >
+                      <ProductCard
+                        product={product}
+                        onAddToCart={handleAddToCart}
+                        onToggleWishlist={handleToggleWishlist}
+                        isInWishlist={wishlist.includes(product.id)}
+                      />
+                    </div>
                   ))}
                 </div>
               </TabsContent>
@@ -175,14 +233,22 @@ const ProductGrid = ({ title = "Featured Products", showTabs = true, limit }: Pr
           </Tabs>
         ) : (
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
-            {displayProducts.map(product => (
-              <ProductCard
+            {displayProducts.map((product, index) => (
+              <div
                 key={product.id}
-                product={product}
-                onAddToCart={handleAddToCart}
-                onToggleWishlist={handleToggleWishlist}
-                isInWishlist={wishlist.includes(product.id)}
-              />
+                className="animate-fade-in hover-scale"
+                style={{
+                  animationDelay: `${index * 0.1}s`,
+                  animationFillMode: 'both'
+                }}
+              >
+                <ProductCard
+                  product={product}
+                  onAddToCart={handleAddToCart}
+                  onToggleWishlist={handleToggleWishlist}
+                  isInWishlist={wishlist.includes(product.id)}
+                />
+              </div>
             ))}
           </div>
         )}
